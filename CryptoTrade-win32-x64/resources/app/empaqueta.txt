@@ -1,0 +1,1 @@
+electron-packager . CryptoTrade --arch=ia32,x64 --platform=darwin,linux,win32 --electron-version=1.7.11 --overwrite=true

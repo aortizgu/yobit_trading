@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Crypto Trading</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./node_modules/jquery/dist/jquery.min.js" />
+    <style>
+        body {
+            background-color: rgb(85, 184, 241);
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container container-body" style="height:100vh">
+        <div class="jumbotron" style="height:10vh">
+            <h1>Crypto Trading</h1>
+        </div>
+        <div class="container" style="height:80vh">
+            <div class="panel panel-default" id="init_panel">
+                <div class="panel-body not_logged">
+                    <div class="form-group">
+                        <label for="usr">API TOKEN:</label>
+                        <input type="text" class="form-control" id="api_token", value="">
+                        <label for="usr">API SECRET:</label>
+                        <input type="text" class="form-control" id="api_secret" value="">
+                      </div>
+                      <button type="button" class="btn btn-primary" id="api_token_ok">OK</button>
+                </div>
+            </div>
+            <br>
+            <div class="container" id="dashboard">
+                <div class="row">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <div class="btn-group-vertical">
+                            <button type="button" class="btn btn-primary" id="trades_button">Trades</button>
+                            <button type="button" class="btn btn-primary" id="order_book_button">Order Book</button>
+                            <button type="button" class="btn btn-primary logged" id="user_info_button">User Info</button>
+                            <button type="button" class="btn btn-primary logged" id="buy_button">Compra</button>
+                            <button type="button" class="btn btn-primary logged" id="sell_button">Vende</button>
+                            <button type="button" class="btn btn-primary" id="reset_log_button">Limpia log</button>
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Moneda:</label>
+                            <input type="text" class="form-control" id="target_coin" value="eth">
+                            <label for="pwd">Moneda base:</label>
+                            <input type="text" class="form-control" id="base_coin" value="btc">
+                            <label for="pwd">Porcentaje de transaccion:</label>
+                            <input type="number" min="0" max="100" step="1" id="percent" value="50">
+                          </div>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div id="console" style="overflow: auto;   height: 300px; width: 100%;background-color: aliceblue;">
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</body>
+<script src="./yobit.js"></script>
+<script src="./index.js"></script>
+</html>
