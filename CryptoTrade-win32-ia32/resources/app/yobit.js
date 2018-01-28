@@ -3,7 +3,7 @@ var verbose = false
 var util = require('util'),
     _ = require('underscore'),
     request	= require('request'),
-    crypto = require('crypto'),
+    sha = require('js-sha512'),
     VError = require('verror'),
     md5 = require('MD5')
 
@@ -79,10 +79,9 @@ Yobit.prototype.signMessage = function getMessageSignature(params)
     }
     var data = data.join('&')
 
-    hash = crypto.createHmac('sha512', this.secret)
-    hash.update(data)
-
-    return(hash.digest('hex'))
+    hash = sha.sha512.hmac.create(this.secret);
+    hash.update(data);
+    return hash.hex();
 }
 
 /**
@@ -409,5 +408,3 @@ function mapErrorMessage(error_code)
 
     return( errorCodes[error_code] )
 }
-
-module.exports = Yobit

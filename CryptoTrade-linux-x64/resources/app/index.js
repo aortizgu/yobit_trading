@@ -18,7 +18,6 @@ function log(text) {
     $('#console').append(text + "<br>");
 }
 
-
 function trades() {
     var pair = getPair();
     if (pair.length > 0) {
@@ -89,6 +88,8 @@ function userInfo() {
                         log("userInfo::tienes " + value + " " + coin + "(incluyendo ordenes en ejecucion)");
                     }
                 }
+            }else{
+                log("userInfo::error " + data["error"])
             }
         }
     });
@@ -265,29 +266,22 @@ window.onload = function () {
             log("api token vacío, Pon un api token")
         }
     })
-
     $('#trades_button').click(function (e) {
         trades();
     })
-
     $('#order_book_button').click(function (e) {
         orders();
     })
-
     $('#user_info_button').click(function (e) {
         userInfo();
     })
-
     $('#buy_button').click(function (e) {
         buy();
     })
-
     $('#sell_button').click(function (e) {
         sell();
     })
-
     $('#reset_log_button').click(function (e) {
         $('#console').text("");
     })
-
 }
